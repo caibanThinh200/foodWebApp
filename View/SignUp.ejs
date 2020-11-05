@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+</head>
+<body>
+    <form action="/register/SignUp"  method="POST">
+        <h1>Sign up form</h1>
+        <div><label>Họ và tên: </label><input type="text" name="fullname" placeholder="Nhập ở đây..."/> </div>
+        <div><label>Ngày sinh: </label><input type="text" name="birth" placeholder="Nhập ở đây..."/> </div>
+        <div><label>Email: </label><input type="text" name="email" placeholder="Nhập ở đây..."/> </div>
+        <div><label>Giới tính: <select><option>Nam</option><option>Nữ</option></select>
+        <div><label>Mật khẩu: </label><input type="password" name="password" placeholder="Nhập ở đây..."/></div>
+        <button  type="submit" class="submit">Sign Up</button>
+    </form>
+    <h3><%=message%></h3>
+</body>
+</html>

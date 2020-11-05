@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/stylesheet/home.css"/>
+    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <title>My homepage || Welcome</title>
+</head>
+<style>
+   body{
+    margin: 0px;
+   
+    font-family: Arial, Helvetica, sans-serif;
+}
+.menu{
+    
+    padding: 15px;
+    background-color: beige;
+    width: 100%;
+
+}
+.w60{
+    width: 60%;
+}
+.w50{
+    width: 40%;
+}
+.fa{
+   margin-top: 5px;
+   
+}
+.text-size30{
+    font-size: 30px;
+    
+}
+.gone{
+    display: none;
+}
+.circle-box{
+    width: 60%;
+}
+.circle{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    background-color: dimgrey;
+}
+    
+.float-left{
+    float: left;
+}
+.float-right{
+    float: right;
+}
+.clear{
+    clear: both;
+}
+.margin-bottom{
+    margin-bottom: 5px;
+}
+.box{
+    width: 100px;
+    margin-right: 10px;
+    background-color: silver;
+    height: 30px;
+    border-radius: 10%;
+    -webkit-border-radius: 10%;
+    -moz-border-radius: 10%;
+    -ms-border-radius: 10%;
+    -o-border-radius: 10%;
+    border: solid 0px;
+    margin-left: 30px;
+    
+}
+.content-top-new{
+    padding: 15px;
+    background-color: moccasin;
+    width: 100%;
+    height: auto;
+}
+.content-left{
+ 
+    width: 35%;
+    height: 250px;
+}
+.content-left img{
+    width: 100%;
+    height: 100%;
+}
+.content-right{
+    width: 50%;
+    margin-left: 20px;
+    height: 100%;
+}
+.relative{
+    position: relative;
+}
+.bought{
+    bottom: 10px;
+    margin-left: 10px;
+}
+.mg-top{
+    margin-top: 50px;
+}
+.content-body{
+    width: 100%;;
+    height:auto;
+}
+.content-item{
+    padding: 15px;
+    float: left;
+    margin: 30px;
+    width: 14%;
+    height: 350px;
+    background-color: gainsboro;
+}
+.content-item-img{
+    width: 100%;
+    height: 200px;
+}
+.content-item img{
+    width: 100%;
+    height: 100%;
+}
+.content-item-text{
+    width: 100%;
+   
+}
+.footer{
+    margin-top: 50px;
+    width: 100%;
+    background-color: darksalmon;
+    height: auto;
+    padding: 20px;
+}
+.footer-item{
+    float: left;
+    width: 20%;
+    height: 100%;
+    margin-left: 30px;
+}
+@media only screen and (max-width:450px){
+    .gone{
+    display: block;
+    margin-left: 90px;
+    }
+    .box{
+        display: none;
+    }
+    .content-item{
+    width: 15%;
+    height:auto;
+    margin: 20px;
+    }
+    .content-item-img{
+        width: 100%;
+        height: 100px;
+        font-size: 12px;
+    }
+    .footer-item{
+        width:15%;
+        font-size: 10px;
+    }
+
+}
+@media only screen and (max-width:850px){
+    body{
+        padding: 10px;
+    }
+    .circle-box{
+        width: 40%;
+    }
+    .content-top-new{
+        margin-left: 15px;
+    }
+    .content-item{
+        margin: 20px;
+        width: 10%;
+        height: auto;
+    }
+    .footer-item p {
+        font-size: 10px;
+    }
+    .content-item-img{
+        height: 100px;
+    }
+}
+</style>
+<body>
+     <header>
+    <div class="menu">
+        <div class="circle-box float-left">
+          <div class="circle">
+          </div>
+        </div> 
+          
+        <div class="menu-btn float-left w50">
+            
+           <button class="box float-left"></button>
+           <button class="box float-left"></button>
+           <button class="box float-left"></button>
+          <div class="icon gone float-left"><i class="text-size30 fa fa-bars "></i></div>
+          <form action="/homepage/search" method="GET">
+            <input type="text" name="search" placeholder="Nhap vao day ..."/>
+            <button >Tim kiem</button>
+        </form> 
+        </div>
+        <div class="clear"></div> 
+    </header>
+    <div class="content-top-new">
+            <div class="content-left float-left  mg-top">
+                <img src="https://i.pinimg.com/originals/af/8d/63/af8d63a477078732b79ff9d9fc60873f.jpg"/>
+            </div>
+            <div class="content-right float-left mg-top">
+                <h2>What is Lorem Ipsum?</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            </div>
+            <div class="clear"> </div>
+        </div>
+       
+    <div class="content-body">
+        <%data.forEach((product)=>{%>
+        <div class="content-item float-left">
+            <div class="content-item-img">
+                <img name="productImage" id="product-image" src="<%=product.image%>" alt=""/>
+            </div>
+            <div class="content-item-text">
+                <h3 id ="product-name" name="productName">
+                   <%=product.productName%>
+                </h3>
+             </div>   
+                
+                <p name="productPrice" id="product-price"><%=product.price%></p>
+           
+            <button class="bought relative">Mua</button>
+            
+        </div>   
+        <%});%>
+        <div class="clear"></div>
+   
+    <div class="footer">
+        <div class="footer-item">
+            <h1>What is Lorem Ipsum?</h1>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        </div>
+        <div class="footer-item">
+            <h1>What is Lorem Ipsum?</h1>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        </div>
+        <div class="footer-item">
+            <h1>What is Lorem Ipsum?</h1>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        </div>
+        <div class="footer-item">
+            <h1>What is Lorem Ipsum?</h1>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        </div>
+        <div class="clear"></div>
+      </div>
+</body>
+<script>
+   
+    
+    let productName = document.getElementById("product-name").innerHTML;
+    let productImage = document.getElementById("product-image").src;
+    let productPrice = document.getElementById("product-price").innerHTML;
+    let product = {
+        productName:productName,
+        productImage:productImage,
+        productPrice:productPrice
+    }
+    console.log(product);
+    const products = async () => {
+    const response = await fetch('/Cart',{
+      method: 'POST',
+      body: JSON.stringify(product),
+       headers: {
+      'Content-Type': 'application/json'
+    }
+    });
+    const myJson = response.json();
+    }
+    products(); 
+    
+   
+</script>
+</html>
