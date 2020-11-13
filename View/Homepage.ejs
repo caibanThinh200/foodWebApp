@@ -190,6 +190,14 @@
         height: 100px;
     }
 }
+nav{
+    display: flex;
+    justify-content: space-around;
+    
+}
+nav a {
+    margin: 30px;
+}
 </style>
 <body>
      <header>
@@ -205,6 +213,9 @@
            <button class="box float-left"></button>
            <button class="box float-left"></button>
           <div class="icon gone float-left"><i class="text-size30 fa fa-bars "></i></div>
+          <form action="/Cart" method="GET">
+         <button  class="shopping-cart"> Giỏ hàng</button>
+        </form>
           <form action="/homepage/search" method="GET">
             <input type="text" name="search" placeholder="Nhap vao day ..."/>
             <button >Tim kiem</button>
@@ -224,20 +235,29 @@
         </div>
        
     <div class="content-body">
+        <div class="content-category">
+            <nav class="category-list">
+                <a href="#">Macbook</a>
+                <a href="#">ASUS</a>
+                <a href="#">Accer</a>
+                <a href="#">Dell</a>
+            </nav>
+        </div>
         <%data.forEach((product)=>{%>
         <div class="content-item float-left">
             <div class="content-item-img">
-                <img name="productImage" id="product-image" src="<%=product.image%>" alt=""/>
+                <img name="productImage" class="product-image" id="product-image" src="<%=product.image%>" alt=""/>
             </div>
             <div class="content-item-text">
-                <h3 id ="product-name" name="productName">
+                <h3 id ="product-name" class="product-name" name="productName">
                    <%=product.productName%>
                 </h3>
              </div>   
                 
-                <p name="productPrice" id="product-price"><%=product.price%></p>
+                <p name="productPrice" class="product-price" id="product-price"><%=product.price%></p>
            
-            <button class="bought relative">Mua</button>
+            <button class="bought relative" >Mua</button>
+            <p><%message%></p>
             
         </div>   
         <%});%>
@@ -264,18 +284,25 @@
       </div>
 </body>
 <script>
-   
-    
-    let productName = document.getElementById("product-name").innerHTML;
-    let productImage = document.getElementById("product-image").src;
-    let productPrice = document.getElementById("product-price").innerHTML;
-    let product = {
-        productName:productName,
-        productImage:productImage,
-        productPrice:productPrice
-    }
-    console.log(product);
-    const products = async () => {
+ 
+ 
+  let contentItems = document.getElementsByClassName("content-item");
+  
+  for(let i = 0 ; i < contentItems.length;i++){
+    let contentItem = contentItems[i];
+    let addCartBtn = contentItem.getElementsByClassName("bought")[0];
+        addCartBtn.addEventListener("click",()=>{
+        let productName = contentItem.getElementsByClassName("product-name")[0].innerHTML;
+        let productImage = contentItem.getElementsByClassName("product-image")[0].src;
+        let productPrice = contentItem.getElementsByClassName("product-price")[0].innerHTML;
+        let product = {
+            productName:productName,
+            productImage:productImage,
+            productPrice:productPrice
+        }
+        
+        console.log(product);
+        const products = async () => {
     const response = await fetch('/Cart',{
       method: 'POST',
       body: JSON.stringify(product),
@@ -285,8 +312,15 @@
     });
     const myJson = response.json();
     }
-    products(); 
+    products();
+    alert("Đã thêm vào giỏ hàng thành công");
+   });
+}
+   
+  
+</script>
+</html>    
+
+    
     
    
-</script>
-</html>
